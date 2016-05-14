@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		link(href='/css/main.css', rel='stylesheet', type='text/css')
+	body
+		div.menu
+			ul.nav
+				li.title 
+					strong Bulletin Board
+				li 
+					a(href="/") Post A Message
+				li 
+					a(href="messages") View Messages
+
+		div.messageboard
+			ul.messages
+				each post in posts
+					li.messages= "Author: " + post.name + " | Title: " + post.title + " | Message: " + post.message

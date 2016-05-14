@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		link(href='/css/main.css', rel='stylesheet', type='text/css')
+	body
+		div.menu
+			ul.nav
+				li.title 
+					strong Bulletin Board
+				li 
+					a(href="/") Post A Message
+				li 
+					a(href="messages") View Messages
+
+		h1 Bulletin Board
+		p Post A New Message
+		
+		form(action="/messages", method="POST")
+			input(type="text", placeholder="Name", name="name")
+			<br><br>
+			input(type="text", placeholder="Title", name="title")
+			<br><br>
+			textarea(placeholder="Type Message Here..." name="message" rows="25" cols="80")
+			<br><br>
+			button(type="submit") Submit
