@@ -25,7 +25,7 @@ MongoClient.connect('mongodb://dhkim1211:nycda@ds011369.mlab.com:11369/messagebo
 
 
 app.get('/', function(req, res) {
-	res.render('index.jade');
+	res.render('index2.jade');
 })
 
 app.post('/messages', function(req, res) {

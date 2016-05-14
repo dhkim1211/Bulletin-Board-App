@@ -16,23 +16,29 @@ html( lang="en" )
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href="") Bulletin Board
+					a.navbar-brand(href="#") Bulletin Board
 
 				#navbar-inverse.collapse.navbar-collapse
 					ul.nav.navbar-nav
-						li: a( href="/") New Message
-						li.active: a( href="messages" ) All Messages
+						li.active: a( href="/") New Message
+						li: a( href="messages" ) All Messages
+			
 			div.col-md-12
-				h2 Messages:
-					br
-					br
-					each post in posts
-						p.messages= "Author: " 
-							em #{post.name} 
-						p.messages= "Title: " 
-							em #{post.title} 
-						p.messages= "Message: " 
-							em #{post.message}
-						a.btn.btn-xs.btn-danger Delete
-						br
-						br
+				h1 Bulletin Board
+				p Post A New Message
+				
+				form(action="/messages", method="POST")
+					input(type="text", placeholder="Name", name="name")
+					<br><br>
+					input(type="text", placeholder="Title", name="title")
+					<br><br>
+					textarea(placeholder="Type Message Here..." name="message" rows="20" cols="70")
+					<br><br>
+					button(type="submit") Submit
+
+				br
+				br
+				br
+
+		script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+		script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
