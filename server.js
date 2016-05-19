@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'jade');
 app.use(express.static('public'));
 
-
+//connect to db
 MongoClient.connect('mongodb://dhkim1211:nycda@ds011369.mlab.com:11369/messageboard', function(err, database) {
 	//..start the server
 	if (err) {
@@ -23,11 +23,12 @@ MongoClient.connect('mongodb://dhkim1211:nycda@ds011369.mlab.com:11369/messagebo
 
 
 
-
+//home page
 app.get('/', function(req, res) {
 	res.render('index2.jade');
 })
 
+//post messages
 app.post('/messages', function(req, res) {
 	db.collection('message').save(req.body, function(err, results) {
 		if (err) { return console.log(err);}
@@ -37,6 +38,7 @@ app.post('/messages', function(req, res) {
 	})
 })
 
+//messages page
 app.get('/messages', function(req, res) {
 	//cursor = mongo object
 	var cursor = db.collection('message').find().toArray(function(err, results) {
